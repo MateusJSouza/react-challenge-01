@@ -1,23 +1,22 @@
 class ProductController {
   index() {
-    // Listar todos os registros
-
+    // Listar todos os produtos
   }
 
   show() {
-    // Obter um registro
+    // Obter um produto
   }
 
   store() {
-    // Criar novo registro
+    // Criar novo produto
   }
 
   update() {
-    // Editar um registro
+    // Editar um produto
   }
 
   delete() {
-    // Deletar um registro
+    // Deletar um produto
   }
 }
 

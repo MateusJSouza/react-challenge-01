@@ -4,12 +4,10 @@ const ProductController = require('./app/controllers/ProductController');
 
 const router = Router();
 
-router.get('/', (request, response) => {
-  response.send('Hello');
-});
-
-router.post('/cart', ProductController);
-router.get('/cart', ProductController);
-router.update('/cart/:id', ProductController);
+router.get('/cart', ProductController.index);
+router.get('/cart/:id', ProductController.show);
+router.delete('/cart/:id', ProductController.delete);
+router.post('/cart', ProductController.store);
+router.put('/cart/:id', ProductController.update);
 
 module.exports = router;
