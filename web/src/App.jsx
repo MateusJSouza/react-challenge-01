@@ -33,33 +33,28 @@ export function App() {
     name: 'produto',
     category: 'categoria',
     price: randomNumber(90, 1200),
-    quantity: 1,
+    amount: 1,
   };
 
   const fetchData = () => {
-    api.get('/cart', productObject).then(
+    api.get('/cart').then(
       response => setCart(response.data)
     );
   }
 
   const handleAddItem = () => {
     api.post('/cart', productObject).then(response => {
-      console.log(response);
       fetchData();
     })
   }
 
   function handleRemoveItem(item) {
-    console.log('disparou handleRemoveItem');
     api.delete(`/cart/${item._id}`).then(response => {
-      console.log(response);
       fetchData();
     })
   }
 
   function handleUpdateItem(item, action) {
-    console.log('disparou handleUpdateItem');
-
     let newAmount = item.amount;
 
     if (action === 'decrease') {
@@ -73,10 +68,8 @@ export function App() {
       newAmount += 1;
     }
 
-    const newData = {...item, newAmount};
+    const newData = {...item, amount: newAmount};
     delete newData._id;
-
-    console.log(newData);
 
     api.put(`/cart/${item._id}`, newData).then(response => {
       console.log({ response });
@@ -86,6 +79,7 @@ export function App() {
 
   const getTotal = () => {
     let sum = 0;
+
     for (let item of cart) {
       sum += item.price * item.amount;
     }
