@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: 'http://localhost:3001/api'
+  baseURL: 'https://crudcrud.com/api/c0d543c139914fdb8782dd6127442316'
 })
