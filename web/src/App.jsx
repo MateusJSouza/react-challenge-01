@@ -83,9 +83,11 @@ export function App() {
     for (let item of cart) {
       sum += item.price * item.amount;
     }
+
+    return sum;
   }
 
-  const cartTotal = getTotal;
+  const cartTotal = getTotal();
 
   useEffect(() => {
     fetchData();
