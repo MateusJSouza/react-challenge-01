@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { MyContext } from '../../contexts/mycontext';
 
-export const TableRow = ({ handleRemoveItem, handleUpdateItem, data }) => {
+export const TableRow = ({ data }) => {
+  const { handleUpdateItem, handleRemoveItem } = useContext(MyContext);
+
   return (
     <tr>
       <td>
